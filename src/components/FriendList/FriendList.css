@@ -1,0 +1,23 @@
+.FriendList-item {
+  width: 300px;
+  border: 1px solid silver;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 15px 10px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+.avatar {
+  margin-right: 15px;
+}
+.status {
+  background: green;
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+}
+.statusnActiv {
+  background: red;
+  height: 10px;
+  width: 10px;
+  border-radius: 50px;
+}

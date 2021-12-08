@@ -1,0 +1,20 @@
+@import-normalize;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+:root {
+  --accent-color: orange;
+  --text-color: #000;
+  --silver-color: silver;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  /* -webkit-font-feature-settings: anti; */
+  color: var(--text-color);
+}

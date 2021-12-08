@@ -1,0 +1,19 @@
+.top-sheet {
+  color: aliceblue;
+  background-color: rgb(27, 179, 179);
+  display: flex;
+}
+.sheet-item {
+  padding: 20px 80px;
+  border-right: 1px solid #fff;
+}
+.sheet-data {
+  /* margin-right: 180px; */
+  padding: 10px;
+}
+
+.Transaction-item {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid silver;
+}
