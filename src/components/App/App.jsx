@@ -1,10 +1,10 @@
-import Feedback from "../Feedback/Feedback";
+import Phonebook from "../Phonebook/Phonebook";
 
 const App = () => {
   return (
     <div>
       <>
-        <Feedback />
+        <Phonebook />
       </>
     </div>
   );
