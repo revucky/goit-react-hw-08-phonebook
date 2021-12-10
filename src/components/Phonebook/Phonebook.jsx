@@ -1,34 +1,63 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import { nanoid } from "nanoid";
+
+import ContactForm from "../ContactForm/ContactForm";
+import Filter from "../Fliter/Filter";
+import ContactList from "./ContactList";
 
 class Phonebook extends React.Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    contacts: [
+      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+    ],
+    filter: "",
+  };
+  //зміни
+  handleChange = (e) => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
+  };
+  // створення
+  handleCreate = (newContact) => {
+    this.setState((prevState) => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
+  };
+  //видалення
+  handleDelete = (ev) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter(
+        (contact) => contact.id !== ev.target.id
+      ),
+    }));
   };
 
-  handleClick = (e) => {
-    const name = e.target.id;
-    this.setState((prevState) => {
-      return {
-        [name]: prevState[name] + 1,
-      };
-    });
+  handleFilter = (value) => this.setState({ filter: value });
+  getFilter = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
-  // countPositiveFeedbackPercentage = () => {
-  //   return Math.round((this.state.good * 100) / 100);
-  // };
 
   render() {
+    const { handleCreate, handleDelete, handleFilter, getFilter } = this;
+    const { filter, contacts } = this.state;
+
     return (
       <div>
-        <h2>Phonebook</h2>
+        <h1>Phonebook</h1>
+        <ContactForm allContacts={contacts} onSubmit={handleCreate} />
+        <h2>Contacts</h2>
+        <Filter value={filter} onChange={handleFilter} />
+        <ContactList
+          lists={filter ? getFilter() : contacts}
+          onClick={handleDelete}
+        />
       </div>
     );
   }
 }
-
-Feedback.propTypes = {};
 
 export default Phonebook;
