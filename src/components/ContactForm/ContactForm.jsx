@@ -10,19 +10,20 @@ class ContactForm extends Component {
     const { name, value } = e.currentTarget;
     this.setState({
       [name]: value,
-      id: nanoid(3),
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.allContacts.some(({ name }) =>
-      name === this.state.name
-        ? alert("This name already exist in your contacts!")
-        : this.props.onSubmit({ ...this.state })
-    );
+    const isDuplicate = this.checkIfDuplicate();
+    if (isDuplicate) {
+      return alert(`${this.state.name} already exist in your contacts!`);
+    }
+    this.props.onSubmit({ ...this.state, id: nanoid(3) });
     this.reset();
   };
+  checkIfDuplicate = () =>
+    this.props.allContacts.some(({ name }) => name === this.state.name);
 
   reset = () => {
     this.setState({ name: "", number: "" });

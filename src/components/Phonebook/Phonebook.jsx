@@ -51,10 +51,7 @@ class Phonebook extends React.Component {
         <ContactForm allContacts={contacts} onSubmit={handleCreate} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={handleFilter} />
-        <ContactList
-          lists={filter ? getFilter() : contacts}
-          onClick={handleDelete}
-        />
+        <ContactList lists={getFilter()} onClick={handleDelete} />
       </div>
     );
   }
