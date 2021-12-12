@@ -1,18 +1,33 @@
 import React from "react";
-// import { nanoid } from "nanoid";
 
 import ContactForm from "../ContactForm/ContactForm";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
+import * as storage from "../../services/localStorage";
+
+const STORAGE_KET = "contacts";
 
 class Phonebook extends React.Component {
   state = {
-    contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-    ],
+    contacts: [],
     filter: "",
   };
+  //
+
+  componentDidMount() {
+    const savedContact = storage.get(STORAGE_KET);
+    if (savedContact) {
+      this.setState({ contacts: savedContact });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts !== contacts) {
+      storage.save(STORAGE_KET, contacts);
+    }
+  }
+
   //зміни
   handleChange = (e) => {
     const { name, value } = e.currentTarget;
