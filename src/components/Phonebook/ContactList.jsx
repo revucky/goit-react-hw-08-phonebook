@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ContactList = ({ lists, onClick, items }) => {
+const ContactList = ({ lists, onClick }) => {
   return (
     <div>
       <ul>
