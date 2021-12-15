@@ -2,27 +2,28 @@ import { useState, useEffect } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import * as storage from "../../services/localStorage";
 
-const STORAGE_KET = "contacts";
+const STORAGE_KEY = "contacts";
 
 const Phonebook = () => {
-  const [contacts, setContacts] = useState(storage.get(STORAGE_KET));
+  const [contacts, setContacts] = useState(storage.get(STORAGE_KEY));
   const [filter, setFilter] = useState("");
-
-  // useEffect(() => {
-  //   effect;
-  //   return () => {
-  //     cleanup;
-  //   };
-  // }, [input]);
-
+  //локал сторадж
+  useEffect(() => {
+    storage.save(STORAGE_KEY, contacts);
+  }, [contacts]);
+  // додавання
   const handleCreate = (newContact) => {
     setContacts((prevState) => [...prevState, newContact]);
   };
+  // видалення
   const handleDelete = (ev) => {
     setContacts(contacts.filter((contact) => contact.id !== ev.target.id));
   };
+  // пошук по імені
   const handleFilter = (value) => setFilter(value);
   const getFilter = () => {
     return contacts.filter((contact) =>
@@ -37,6 +38,7 @@ const Phonebook = () => {
       <h2>Contacts</h2>
       <Filter value={filter} onChange={handleFilter} />
       <ContactList lists={getFilter()} onClick={handleDelete} />
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };
@@ -49,7 +51,7 @@ const Phonebook = () => {
 //
 
 // componentDidMount() {
-//   const savedContact = storage.get(STORAGE_KET);
+//   const savedContact = storage.get(STORAGE_KEY);
 //   if (savedContact) {
 //     this.setState({ contacts: savedContact });
 //   }
@@ -58,7 +60,7 @@ const Phonebook = () => {
 // componentDidUpdate(prevProps, prevState) {
 //   const { contacts } = this.state;
 //   if (prevState.contacts !== contacts) {
-//     storage.save(STORAGE_KET, contacts);
+//     storage.save(STORAGE_KEY, contacts);
 //   }
 // }
 

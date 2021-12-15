@@ -1,30 +1,30 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 
 const ContactForm = ({ allContacts, onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-
+  //сабміт форми
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const isDuplicate = checkIfDuplicate();
-    // if (isDuplicate) {
-    //   return alert(`${name} already exist in your contacts!`);
-    // }
-    onSubmit({ name, number, id: nanoid(3) });
+    const isDuplicate = (allContacts) => allContacts.name === name;
+    allContacts.some(isDuplicate)
+      ? toast.error(`${name} already exist in your contacts!`)
+      : onSubmit({ name, number, id: nanoid(3) });
     reset();
   };
-
-  // const checkIfDuplicate = () => allContacts.some((name) => name === name);
-
+  // ресет інпутов
   const reset = () => {
     setName("");
     setNumber("");
   };
+  //disabled 2 способи не активної кнопки
   const isBtnDis = Object.values({ name, number }).some((value) => {
     return !value;
   });
+  // const requiredVal = [name, number];
+  // const isBtnDis = requiredVal.some((value) => !value);
 
   return (
     <form onSubmit={handleSubmit}>
