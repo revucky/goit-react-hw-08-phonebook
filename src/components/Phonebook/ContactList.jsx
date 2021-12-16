@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const ContactList = ({ lists, onClick }) => {
   return (
@@ -18,8 +18,8 @@ const ContactList = ({ lists, onClick }) => {
   );
 };
 
-ContactList.propTypes = {
-  lists: PropTypes.array,
-};
+// ContactList.propTypes = {
+//   lists: PropTypes.array,
+// };
 
 export default ContactList;

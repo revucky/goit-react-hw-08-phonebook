@@ -1,23 +1,26 @@
 import { useState, useEffect } from "react";
+// import React, { Component } from "react";
+import { useLocalStorage } from "react-use";
 import ContactForm from "../ContactForm/ContactForm";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import * as storage from "../../services/localStorage";
+// import * as storage from "../../services/localStorage";
 
 const STORAGE_KEY = "contacts";
 
 const Phonebook = () => {
-  const [contacts, setContacts] = useState(storage.get(STORAGE_KEY));
+  const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
   const [filter, setFilter] = useState("");
   //локал сторадж
-  useEffect(() => {
-    storage.save(STORAGE_KEY, contacts);
-  }, [contacts]);
+  // useEffect(() => {
+  //   storage.save(STORAGE_KEY, contacts);
+  // }, [contacts]);
   // додавання
   const handleCreate = (newContact) => {
-    setContacts((prevState) => [...prevState, newContact]);
+    setContacts([...contacts, newContact]);
+    // setContacts((prevState) => [...prevState, newContact]);
   };
   // видалення
   const handleDelete = (ev) => {
@@ -26,8 +29,8 @@ const Phonebook = () => {
   // пошук по імені
   const handleFilter = (value) => setFilter(value);
   const getFilter = () => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+    return contacts.filter((el) =>
+      el.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
 
@@ -43,33 +46,32 @@ const Phonebook = () => {
   );
 };
 
-// class Phonebook extends React.Component {
+// export default class Phonebook extends React.Component {
 //   state = {
 //     contacts: [],
 //     filter: "",
 //   };
-//
 
-// componentDidMount() {
-//   const savedContact = storage.get(STORAGE_KEY);
-//   if (savedContact) {
-//     this.setState({ contacts: savedContact });
+//   componentDidMount() {
+//     const savedContact = storage.get(STORAGE_KEY);
+//     if (savedContact) {
+//       this.setState({ contacts: savedContact });
+//     }
 //   }
-// }
 
-// componentDidUpdate(prevProps, prevState) {
-//   const { contacts } = this.state;
-//   if (prevState.contacts !== contacts) {
-//     storage.save(STORAGE_KEY, contacts);
+//   componentDidUpdate(prevProps, prevState) {
+//     const { contacts } = this.state;
+//     if (prevState.contacts !== contacts) {
+//       storage.save(STORAGE_KEY, contacts);
+//     }
 //   }
-// }
 
-//зміни
-// handleChange = (e) => {
-//   const { name, value } = e.currentTarget;
-//   this.setState({ [name]: value });
-// };
-// створення
+//   //зміни;
+//   handleChange = (e) => {
+//     const { name, value } = e.currentTarget;
+//     this.setState({ [name]: value });
+//   };
+//   // створення;
 //   handleCreate = (newContact) => {
 //     this.setState((prevState) => ({
 //       contacts: [...prevState.contacts, newContact],
