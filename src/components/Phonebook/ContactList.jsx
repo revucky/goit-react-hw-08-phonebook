@@ -1,15 +1,20 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import "./Phonebook.css";
 
 const ContactList = ({ lists, onClick }) => {
   return (
     <div>
-      <ul>
+      <ul className="list">
         {lists.map(({ name, number, id }) => (
-          <li key={id}>
+          <li className="list-item" key={id}>
             {name}: {number}
-            <button type="button" id={id} onClick={onClick}>
-              delete
+            <button
+              className="btn btn-list"
+              type="button"
+              id={id}
+              onClick={onClick}
+            >
+              видалити
             </button>
           </li>
         ))}

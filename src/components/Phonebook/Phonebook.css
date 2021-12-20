@@ -1,0 +1,42 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgb(248, 244, 244);
+  border-radius: 20px;
+}
+
+.hero {
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.02em;
+}
+.title {
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 31px;
+  letter-spacing: -0.03em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+}
+.btn-list {
+  margin-bottom: 12px;
+}

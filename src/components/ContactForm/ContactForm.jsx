@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
+import "./ContactForm.css";
 
 const ContactForm = ({ allContacts, onSubmit }) => {
   const [name, setName] = useState("");
@@ -27,13 +28,15 @@ const ContactForm = ({ allContacts, onSubmit }) => {
   // const isBtnDis = requiredVal.some((value) => !value);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
+    <form className="forma" onSubmit={handleSubmit}>
+      <label className="label">
+        Прізвище та імʼя
         <input
           type="text"
           name="name"
+          className="input"
           value={name}
+          placeholder="Введи сюда імʼя нового контакту"
           onChange={(e) => setName(e.target.value)}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title=" Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan "
@@ -41,13 +44,15 @@ const ContactForm = ({ allContacts, onSubmit }) => {
         />
       </label>
       <br />
-      <label>
-        Number
+      <label className="label">
+        Моб. номер
         <input
           type="tel"
           name="number"
           // id={nanoid(3)}
           value={number}
+          className="input"
+          placeholder="Запиши сюда, номер контакта"
           onChange={(e) => setNumber(e.target.value)}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title=" Phone number must be digits and can contain spaces, dashes, parentheses and can start with + "
@@ -55,8 +60,8 @@ const ContactForm = ({ allContacts, onSubmit }) => {
         />
       </label>
       <br />
-      <button type="submit" disabled={isBtnDis}>
-        Add contact
+      <button className="btn" type="submit" disabled={isBtnDis}>
+        Додати контакт
       </button>
     </form>
   );

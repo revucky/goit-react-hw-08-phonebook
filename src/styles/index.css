@@ -17,4 +17,5 @@ body {
   font-family: "Montserrat", sans-serif;
   /* -webkit-font-feature-settings: anti; */
   color: var(--text-color);
+  background-color: var(--silver-color);
 }

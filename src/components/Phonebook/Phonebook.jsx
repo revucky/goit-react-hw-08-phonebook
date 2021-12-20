@@ -7,6 +7,7 @@ import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import * as storage from "../../services/localStorage";
+import "./Phonebook.css";
 
 const STORAGE_KEY = "contacts";
 
@@ -35,10 +36,10 @@ const Phonebook = () => {
   };
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className="main">
+      <h1 className="hero">Телефонна книга</h1>
       <ContactForm allContacts={contacts} onSubmit={handleCreate} />
-      <h2>Contacts</h2>
+      <h2 className="title">Список контактів</h2>
       <Filter value={filter} onChange={handleFilter} />
       <ContactList lists={getFilter()} onClick={handleDelete} />
       <ToastContainer position="top-center" autoClose={3000} />

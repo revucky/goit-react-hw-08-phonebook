@@ -1,0 +1,12 @@
+.title-filter {
+  font-family: Ubuntu;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: -0.03em;
+  color: #f57b0b;
+}
+.filterWrap {
+  display: flex;
+  align-items: center;
+}
