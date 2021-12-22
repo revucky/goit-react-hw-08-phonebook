@@ -10,6 +10,7 @@ import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import * as storage from "../../services/localStorage";
+import { useTranslation } from "react-i18next";
 import "./Phonebook.css";
 import { ImAddressBook } from "react-icons/im";
 
@@ -18,6 +19,7 @@ import { ImAddressBook } from "react-icons/im";
 const Phonebook = () => {
   // // const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
   // const [filter, setFilter] = useState("");
+  const { t } = useTranslation();
   const contacts = useSelector((state) => state.contacts.items);
   const filter = useSelector((state) => state.contacts.filter);
   const dispatch = useDispatch();
@@ -51,10 +53,10 @@ const Phonebook = () => {
       <h1 className="hero">
         {/* <AiFillPlusSquare color="#f57b0b" className="icon" /> */}
         <ImAddressBook color="#f57b0b" className="icon" />
-        Телефонна книга
+        {t("phonebook.title")}
       </h1>
       <ContactForm allContacts={contacts} />
-      <h2 className="title">Список контактів</h2>
+      <h2 className="title">{t("phonebook.subtitle")}</h2>
       <Filter />
       <ContactList lists={getFilter()} onClick={handleDelete} />
       <ToastContainer position="top-center" autoClose={3000} />

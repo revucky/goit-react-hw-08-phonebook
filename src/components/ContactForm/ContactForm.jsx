@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import contactsAction from "../../redux/contacts";
 import "./ContactForm.css";
 
@@ -9,6 +10,7 @@ const ContactForm = ({ allContacts, onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { createContacts } = contactsAction.actions;
   //сабміт форми
   const handleSubmit = (e) => {
@@ -35,13 +37,13 @@ const ContactForm = ({ allContacts, onSubmit }) => {
   return (
     <form className="forma" onSubmit={handleSubmit}>
       <label className="label">
-        Прізвище та імʼя
+        {t("contactForm.label")}
         <input
           type="text"
           name="name"
           className="input"
           value={name}
-          placeholder="Введи імʼя нового контакту"
+          placeholder={t("contactForm.placeholder")}
           onChange={(e) => setName(e.target.value)}
           // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title=" Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan "
@@ -50,14 +52,14 @@ const ContactForm = ({ allContacts, onSubmit }) => {
       </label>
       <br />
       <label className="label">
-        Моб. номер
+        {t("contactForm.labelNum")}
         <input
           type="tel"
           name="number"
           // id={nanoid(3)}
           value={number}
           className="input"
-          placeholder="Додай, номер контакта"
+          placeholder={t("contactForm.placeholderNum")}
           onChange={(e) => setNumber(e.target.value)}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title=" Phone number must be digits and can contain spaces, dashes, parentheses and can start with + "
@@ -66,7 +68,7 @@ const ContactForm = ({ allContacts, onSubmit }) => {
       </label>
       <br />
       <button className="btn" type="submit" disabled={isBtnDis}>
-        Додати контакт
+        {t("contactForm.button")}
       </button>
     </form>
   );

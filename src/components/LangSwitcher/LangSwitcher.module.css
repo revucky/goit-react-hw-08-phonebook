@@ -1,0 +1,15 @@
+.switcher {
+  display: flex;
+}
+.btn {
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  /* border-radius: 50%; */
+}
+.active {
+  composes: btn;
+  width: 40px;
+  background-color: #f57b0b;
+}

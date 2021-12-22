@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import contactsAction from "../../redux/contacts";
+import { useTranslation } from "react-i18next";
 import "./Phonebook.css";
 import { GrUserManager } from "react-icons/gr";
 
 const ContactList = ({ lists, onClick }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   return (
     <div>
       <ul className="list">
@@ -18,7 +20,7 @@ const ContactList = ({ lists, onClick }) => {
               id={id}
               onClick={() => onClick(id)}
             >
-              видалити
+              {t("contactList.delete")}
             </button>
           </li>
         ))}
