@@ -1,18 +1,22 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
+import { useSelector, useDispatch } from "react-redux";
+import { createContacts } from "../../redux/contacts/contactsAction.js";
 import "./ContactForm.css";
 
 const ContactForm = ({ allContacts, onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const dispatch = useDispatch();
   //сабміт форми
   const handleSubmit = (e) => {
     e.preventDefault();
     const isDuplicate = (allContacts) => allContacts.name === name;
     allContacts.some(isDuplicate)
       ? toast.error(`${name} already exist in your contacts!`)
-      : onSubmit({ name, number, id: nanoid(3) });
+      : dispatch(createContacts({ name, number, id: nanoid(3) }));
+    // : onSubmit({ name, number, id: nanoid(3) });
     reset();
   };
   // ресет інпутов
@@ -36,9 +40,9 @@ const ContactForm = ({ allContacts, onSubmit }) => {
           name="name"
           className="input"
           value={name}
-          placeholder="Введи сюда імʼя нового контакту"
+          placeholder="Введи імʼя нового контакту"
           onChange={(e) => setName(e.target.value)}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title=" Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan "
           required
         />
@@ -52,7 +56,7 @@ const ContactForm = ({ allContacts, onSubmit }) => {
           // id={nanoid(3)}
           value={number}
           className="input"
-          placeholder="Запиши сюда, номер контакта"
+          placeholder="Додай, номер контакта"
           onChange={(e) => setNumber(e.target.value)}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title=" Phone number must be digits and can contain spaces, dashes, parentheses and can start with + "

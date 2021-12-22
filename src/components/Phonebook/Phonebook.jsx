@@ -1,51 +1,72 @@
 import { useState, useEffect } from "react";
 // import React, { Component } from "react";
-import { useLocalStorage } from "react-use";
+// import { useLocalStorage } from "react-use";
+
 import ContactForm from "../ContactForm/ContactForm";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../../redux/contacts/contactsAction.js";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import * as storage from "../../services/localStorage";
+import * as storage from "../../services/localStorage";
 import "./Phonebook.css";
+import { AiFillPlusSquare } from "react-icons/ai";
 
 const STORAGE_KEY = "contacts";
 
 const Phonebook = () => {
-  const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
-  const [filter, setFilter] = useState("");
+  // // const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
+  // const [filter, setFilter] = useState("");
+  const contacts = useSelector(
+    (state) =>
+      // storage.get(STORAGE_KEY) ??
+      state.contacts.items
+  );
+  const filter = useSelector((state) => state.contacts.filter);
+  const dispatch = useDispatch();
+
   //локал сторадж
   // useEffect(() => {
   //   storage.save(STORAGE_KEY, contacts);
   // }, [contacts]);
-  // додавання
+
+  // додавання // setContacts([...contacts, newContact]);
   const handleCreate = (newContact) => {
-    setContacts([...contacts, newContact]);
+    dispatch(actions.createContacts(newContact));
     // setContacts((prevState) => [...prevState, newContact]);
   };
-  // видалення
+
+  // видалення // setContacts(contacts.filter((contact) => contact.id !== ev.target.id));
   const handleDelete = (ev) => {
-    setContacts(contacts.filter((contact) => contact.id !== ev.target.id));
+    dispatch(actions.deleteContacts(contacts.id));
   };
   // пошук по імені
-  const handleFilter = (value) => setFilter(value);
+  const handleFilter = (value) => dispatch(actions.changeFilter());
   const getFilter = () => {
     return contacts.filter((el) =>
       el.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-
   return (
     <div className="main">
-      <h1 className="hero">Телефонна книга</h1>
+      <h1 className="hero">
+        <AiFillPlusSquare color="#f57b0b" className="icon" />
+        Телефонна книга
+      </h1>
       <ContactForm allContacts={contacts} onSubmit={handleCreate} />
       <h2 className="title">Список контактів</h2>
-      <Filter value={filter} onChange={handleFilter} />
+      <Filter />
       <ContactList lists={getFilter()} onClick={handleDelete} />
       <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };
+// const mapStateToProps = (state) => ({});
+// const mapDispatchToPTops = (dispatch) => ({});
+
+// const connectContacts = connect(mapStateToProps, mapDispatchToPTops);
+export default Phonebook;
 
 // export default class Phonebook extends React.Component {
 //   state = {
@@ -110,5 +131,3 @@ const Phonebook = () => {
 //     );
 //   }
 // }
-
-export default Phonebook;

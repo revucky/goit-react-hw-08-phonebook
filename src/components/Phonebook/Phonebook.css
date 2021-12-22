@@ -17,6 +17,8 @@
   font-size: 30px;
   line-height: 35px;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
 }
 .title {
   font-family: Ubuntu;
@@ -26,6 +28,10 @@
   letter-spacing: -0.03em;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.icon {
+  margin-right: 10px;
+  fill: #f57b0b;
 }
 .list {
   display: grid;

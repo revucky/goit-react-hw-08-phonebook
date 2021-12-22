@@ -1,8 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import { changeFilter } from "../../redux/contacts/contactsAction";
+
 import "./Filter.css";
 
-const Filter = ({ onChange, value }) => {
+const Filter = () => {
+  const filter = useSelector((state) => state.contacts.filter);
+  const dispatch = useDispatch();
+
   return (
     <div className="filterWrap">
       <p className="title-filter">Пошук по імені</p>
@@ -10,16 +14,12 @@ const Filter = ({ onChange, value }) => {
         className="input"
         type="text"
         name="filter"
-        value={value}
+        value={filter}
         placeholder="Почни вводити імʼя"
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => dispatch(changeFilter(e.target.value))}
       />
     </div>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string,
 };
 
 export default Filter;
