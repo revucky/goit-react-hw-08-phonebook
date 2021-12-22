@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
-import { useSelector, useDispatch } from "react-redux";
-import { createContacts } from "../../redux/contacts/contactsAction.js";
+import { useDispatch } from "react-redux";
+import contactsAction from "../../redux/contacts";
 import "./ContactForm.css";
 
 const ContactForm = ({ allContacts, onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
+  const { createContacts } = contactsAction.actions;
   //сабміт форми
   const handleSubmit = (e) => {
     e.preventDefault();
     const isDuplicate = (allContacts) => allContacts.name === name;
     allContacts.some(isDuplicate)
-      ? toast.error(`${name} already exist in your contacts!`)
+      ? toast.error(`${name}, вже у твоєму списку контакті!`)
       : dispatch(createContacts({ name, number, id: nanoid(3) }));
     // : onSubmit({ name, number, id: nanoid(3) });
     reset();

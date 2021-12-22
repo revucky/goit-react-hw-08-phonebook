@@ -1,48 +1,46 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 // import React, { Component } from "react";
 // import { useLocalStorage } from "react-use";
 
 import ContactForm from "../ContactForm/ContactForm";
 import { useSelector, useDispatch } from "react-redux";
-import * as actions from "../../redux/contacts/contactsAction.js";
+import contactsAction from "../../redux/contacts";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import * as storage from "../../services/localStorage";
+// import * as storage from "../../services/localStorage";
 import "./Phonebook.css";
-import { AiFillPlusSquare } from "react-icons/ai";
+import { ImAddressBook } from "react-icons/im";
 
-const STORAGE_KEY = "contacts";
+// const STORAGE_KEY = "contacts";
 
 const Phonebook = () => {
   // // const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
   // const [filter, setFilter] = useState("");
-  const contacts = useSelector(
-    (state) =>
-      // storage.get(STORAGE_KEY) ??
-      state.contacts.items
-  );
+  const contacts = useSelector((state) => state.contacts.items);
   const filter = useSelector((state) => state.contacts.filter);
   const dispatch = useDispatch();
+  // console.log(contactsAction);
 
   //локал сторадж
   // useEffect(() => {
   //   storage.save(STORAGE_KEY, contacts);
   // }, [contacts]);
 
-  // додавання // setContacts([...contacts, newContact]);
-  const handleCreate = (newContact) => {
-    dispatch(actions.createContacts(newContact));
-    // setContacts((prevState) => [...prevState, newContact]);
-  };
-
-  // видалення // setContacts(contacts.filter((contact) => contact.id !== ev.target.id));
-  const handleDelete = (ev) => {
-    dispatch(actions.deleteContacts(contacts.id));
+  // додавання
+  // const handleCreate = (newContact) => {
+  //   dispatch(createContacts(newContact));
+  //   // setContacts((prevState) => [...prevState, newContact]);
+  // };
+  const { deleteContacts } = contactsAction.actions;
+  // видалення
+  const handleDelete = (id) => {
+    // setContacts(contacts.filter((contact) => contact.id !== ev.target.id));
+    dispatch(deleteContacts(id));
   };
   // пошук по імені
-  const handleFilter = (value) => dispatch(actions.changeFilter());
+  // const handleFilter = (value) => dispatch(actions.changeFilter());
   const getFilter = () => {
     return contacts.filter((el) =>
       el.name.toLowerCase().includes(filter.toLowerCase())
@@ -51,10 +49,11 @@ const Phonebook = () => {
   return (
     <div className="main">
       <h1 className="hero">
-        <AiFillPlusSquare color="#f57b0b" className="icon" />
+        {/* <AiFillPlusSquare color="#f57b0b" className="icon" /> */}
+        <ImAddressBook color="#f57b0b" className="icon" />
         Телефонна книга
       </h1>
-      <ContactForm allContacts={contacts} onSubmit={handleCreate} />
+      <ContactForm allContacts={contacts} />
       <h2 className="title">Список контактів</h2>
       <Filter />
       <ContactList lists={getFilter()} onClick={handleDelete} />

@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteContacts } from "../../redux/contacts/contactsAction.js";
+import { useDispatch } from "react-redux";
+import contactsAction from "../../redux/contacts";
 import "./Phonebook.css";
 import { GrUserManager } from "react-icons/gr";
 
@@ -16,7 +16,7 @@ const ContactList = ({ lists, onClick }) => {
               className="btn btn-list"
               type="button"
               id={id}
-              onClick={(e) => dispatch(deleteContacts(e.target.id))}
+              onClick={() => onClick(id)}
             >
               видалити
             </button>

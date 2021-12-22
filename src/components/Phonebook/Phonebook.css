@@ -45,4 +45,5 @@
 }
 .btn-list {
   margin-bottom: 12px;
+  clip-path: polygon(20px 0%, 90% 0%, 90% 100%, 20px 100%, 0 50%);
 }

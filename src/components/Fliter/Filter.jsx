@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/contacts/contactsAction";
+import contactsAction from "../../redux/contacts";
 
 import "./Filter.css";
 
 const Filter = () => {
   const filter = useSelector((state) => state.contacts.filter);
   const dispatch = useDispatch();
-
+  const { changeFilter } = contactsAction.actions;
   return (
     <div className="filterWrap">
       <p className="title-filter">Пошук по імені</p>
