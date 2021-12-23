@@ -3,7 +3,8 @@ import { toast } from "react-toastify";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import contactsAction from "../../redux/contacts";
+import * as contactsOperations from "../../redux/contacts/contactsOperation";
+// import contactsAction from "../../redux/contacts";
 import "./ContactForm.css";
 
 const ContactForm = ({ allContacts, onSubmit }) => {
@@ -11,7 +12,7 @@ const ContactForm = ({ allContacts, onSubmit }) => {
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { createContacts } = contactsAction.actions;
+  const { createContacts } = contactsOperations;
   //сабміт форми
   const handleSubmit = (e) => {
     e.preventDefault();

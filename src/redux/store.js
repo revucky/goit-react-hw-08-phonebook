@@ -2,6 +2,7 @@
 // import { devToolsEnhancer } from "redux-devtools-extension";
 import { configureStore } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
+// import thunk from "redux-thunk";
 import {
   persistStore,
   persistReducer,

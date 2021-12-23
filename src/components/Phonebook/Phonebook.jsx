@@ -1,10 +1,11 @@
-// import { useState, useEffect } from "react";
+import { useEffect } from "react";
 // import React, { Component } from "react";
 // import { useLocalStorage } from "react-use";
 
 import ContactForm from "../ContactForm/ContactForm";
 import { useSelector, useDispatch } from "react-redux";
-import contactsAction from "../../redux/contacts";
+// import contactsAction from "../../redux/contacts";
+import * as contactsOperations from "../../redux/contacts/contactsOperation";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
 import { ToastContainer } from "react-toastify";
@@ -15,13 +16,16 @@ import "./Phonebook.css";
 import { ImAddressBook } from "react-icons/im";
 
 // const STORAGE_KEY = "contacts";
+const { getContact, deleteContacts } = contactsOperations;
 
 const Phonebook = () => {
   // // const [contacts, setContacts] = useLocalStorage(STORAGE_KEY, []);
   // const [filter, setFilter] = useState("");
   const { t } = useTranslation();
-  const contacts = useSelector((state) => state.contacts.items);
+  const contacts = useSelector((state) => state.contacts.data.items);
   const filter = useSelector((state) => state.contacts.filter);
+  // const loading = useSelector((state) => state.contacts.data.loading);
+  // const error = useSelector((state) => state.contacts.data.error);
   const dispatch = useDispatch();
   // console.log(contactsAction);
 
@@ -29,13 +33,15 @@ const Phonebook = () => {
   // useEffect(() => {
   //   storage.save(STORAGE_KEY, contacts);
   // }, [contacts]);
-
+  useEffect(() => {
+    dispatch(getContact());
+  }, [dispatch]);
   // додавання
   // const handleCreate = (newContact) => {
   //   dispatch(createContacts(newContact));
   //   // setContacts((prevState) => [...prevState, newContact]);
   // };
-  const { deleteContacts } = contactsAction.actions;
+  // const { deleteContacts } = contactsAction.actions;
   // видалення
   const handleDelete = (id) => {
     // setContacts(contacts.filter((contact) => contact.id !== ev.target.id));

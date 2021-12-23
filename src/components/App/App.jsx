@@ -1,8 +1,8 @@
 import Phonebook from "../Phonebook/Phonebook";
 import { Suspense } from "react";
 import Loader from "react-loader-spinner";
-
 import LangSwitcher from "../LangSwitcher/LangSwitcher.js";
+
 const App = () => {
   return (
     <div>
