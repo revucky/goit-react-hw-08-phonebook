@@ -4,13 +4,13 @@ import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from "./locales/en/translation.json";
-import translationUA from "./locales/ua/translation.json";
+import translationUA from "./locales/uk/translation.json";
 
 const resources = {
   en: {
     translation: translationEN,
   },
-  ua: {
+  uk: {
     translation: translationUA,
   },
 };
@@ -28,7 +28,7 @@ i18n
   // for all options read: https://www.i18next.com/overview/configuration-options
   .init({
     resources,
-    fallbackLng: "ua",
+    fallbackLng: "uk",
     debug: true,
   });
 

@@ -4,7 +4,7 @@ import ukrFlag from "./Ua.png";
 import ukFlag from "./Uk.png";
 
 const lang = {
-  ua: { icon: ukrFlag, nativeName: "українська" },
+  uk: { icon: ukrFlag, nativeName: "українська" },
   en: { icon: ukFlag, nativeName: "english" },
 };
 const LangSwitcher = (props) => {
