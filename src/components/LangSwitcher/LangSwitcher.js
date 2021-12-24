@@ -4,11 +4,13 @@ import ukrFlag from "./Ua.png";
 import ukFlag from "./Uk.png";
 
 const lang = {
-  uk: { icon: ukrFlag, nativeName: "українська" },
+  ua: { icon: ukrFlag, nativeName: "українська" },
   en: { icon: ukFlag, nativeName: "english" },
 };
+
 const LangSwitcher = (props) => {
   const { i18n } = useTranslation();
+  console.log(i18n.resolvedLanguage);
   return (
     <div className={s.switcher}>
       {Object.keys(lang).map((lng) => (
@@ -25,4 +27,5 @@ const LangSwitcher = (props) => {
     </div>
   );
 };
+
 export default LangSwitcher;
