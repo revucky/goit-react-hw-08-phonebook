@@ -24,6 +24,7 @@ const Phonebook = () => {
   const { t } = useTranslation();
   const contacts = useSelector((state) => state.contacts.data.items);
   const filter = useSelector((state) => state.contacts.filter);
+  const token = useSelector((state) => state.auth.token);
   // const loading = useSelector((state) => state.contacts.data.loading);
   // const error = useSelector((state) => state.contacts.data.error);
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const Phonebook = () => {
   //   storage.save(STORAGE_KEY, contacts);
   // }, [contacts]);
   useEffect(() => {
-    dispatch(getContact());
+    token && dispatch(getContact());
   }, [dispatch]);
   // додавання
   // const handleCreate = (newContact) => {
@@ -50,9 +51,11 @@ const Phonebook = () => {
   // пошук по імені
   // const handleFilter = (value) => dispatch(actions.changeFilter());
   const getFilter = () => {
-    return contacts.filter((el) =>
-      el.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    return contacts.length
+      ? contacts.filter((el) =>
+          el.name.toLowerCase().includes(filter.toLowerCase())
+        )
+      : [];
   };
   return (
     <div className="main">

@@ -37,8 +37,8 @@ const ContactForm = ({ allContacts, onSubmit }) => {
 
   return (
     <form className="forma" onSubmit={handleSubmit}>
-      <label className="label">
-        {t("contactForm.label")}
+      <div className="wrap">
+        <label className="label">{t("contactForm.label")}</label>
         <input
           type="text"
           name="name"
@@ -49,11 +49,11 @@ const ContactForm = ({ allContacts, onSubmit }) => {
           // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title=" Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan "
           required
-        />
-      </label>
+        />{" "}
+      </div>
       <br />
-      <label className="label">
-        {t("contactForm.labelNum")}
+      <div className="wrap">
+        <label className="label">{t("contactForm.labelNum")}</label>
         <input
           type="tel"
           name="number"
@@ -66,7 +66,7 @@ const ContactForm = ({ allContacts, onSubmit }) => {
           title=" Phone number must be digits and can contain spaces, dashes, parentheses and can start with + "
           required
         />
-      </label>
+      </div>
       <br />
       <button className="btn" type="submit" disabled={isBtnDis}>
         {t("contactForm.button")}

@@ -9,6 +9,7 @@ const initialState = {
     items: [],
     loading: false,
     error: null,
+    token: null,
   },
   filter: "",
 };
@@ -32,10 +33,11 @@ const contactsSlice = createSlice({
       .addCase(getContact.pending, (state) => {
         state.data.loading = true;
         state.data.error = null;
+        state.data.token = null;
       })
       .addCase(getContact.fulfilled, (state, { payload }) => {
         state.data.loading = false;
-        state.data.items = payload;
+        state.data.items = payload.data;
       })
       .addCase(getContact.rejected, (state, { payload }) => {
         state.data.loading = false;

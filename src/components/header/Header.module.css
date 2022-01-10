@@ -1,0 +1,50 @@
+.title {
+  display: inline-block;
+  color: white;
+  /* margin-right: 20px; */
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+.title:hover {
+  transition: all 0.3s cubic-bezier(0, 0, 1, 1);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  color: pink;
+}
+.activeLink {
+  composes: title;
+  color: pink;
+}
+.nav {
+  display: flex;
+}
+.userwrap {
+  display: flex;
+  align-items: center;
+}
+.titleuser {
+  display: inline-block;
+  color: white;
+  /* margin-right: 20px; */
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+.userBtn {
+  cursor: pointer;
+  background: #f57b0b;
+  border-radius: 6px;
+  border: none;
+  width: 60px;
+  height: 30px;
+  color: #fff;
+  box-shadow: 0 0 15px 7px rgba(34, 60, 80, 0.2);
+}
+.userBtn:hover {
+  background-color: purple;
+  transition: box-shadow 0.5s, transform 0.5s;
+  transform: scale(1.2);
+  color: pink;
+}

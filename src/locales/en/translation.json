@@ -1,4 +1,39 @@
 {
+  "header": {
+    "nav": {
+      "main": "Home",
+      "contacts": "Contacts"
+    },
+    "authNav": {
+      "reg": "Registration",
+      "log": "Log In"
+    },
+    "usermenu": {
+      "welcome": "Welcome",
+      "btn": "Log out"
+    }
+  },
+  "pages": {
+    "home": "Welcome",
+    "log": {
+      "title": "Sign in page",
+      "label": "Email",
+      "placeholder": "Enter here your email",
+      "labelPas": "Password",
+      "placeholderPas": "Enter your password",
+      "btn": "Sign in"
+    },
+    "reg": {
+      "title": "Sign up page",
+      "labelNam": "User Name",
+      "placeholderNam": "Type here your user name",
+      "label": "Email",
+      "placeholder": "Type here your email",
+      "labelPas": "Password",
+      "placeholderPas": "Type here your unique password",
+      "btn": "Registration"
+    }
+  },
   "phonebook": {
     "title": "Phone book",
     "subtitle": "Contacts list"
