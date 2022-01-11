@@ -25,15 +25,13 @@ export default function LoginView() {
   // };
 
   useEffect(() => {
-    if (!error) return;
+    if (!error) return toast.success("Welcome");
     toast.error(error);
   }, [error]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authOperations.logIn({ email, password })).then(() =>
-      toast.success("Welcome")
-    );
+    dispatch(authOperations.logIn({ email, password }));
     // toast.success("Welcome");
     setPassword("");
     setEmail("");

@@ -17,10 +17,10 @@ const createContacts = createAsyncThunk(
 );
 
 const deleteContacts = createAsyncThunk(
-  "contacts/ddeleteContactsStatus",
+  "contacts/deleteContactsStatus",
   async (id) => {
-    const { data } = await api.deleteItem(ENDPOINT, id);
-    return data;
+    await api.deleteItem(ENDPOINT, id);
+    return id;
   }
 );
 

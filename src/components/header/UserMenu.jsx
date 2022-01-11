@@ -4,7 +4,7 @@ import authOperations from "../../redux/auth/AuthOperations";
 import { useTranslation } from "react-i18next";
 import defaultAvatar from "./avatar.png";
 import s from "./Header.module.css";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const UserMenu = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const UserMenu = () => {
   const avatar = defaultAvatar;
   const { t } = useTranslation();
 
-  const notify = () => toast.info("Are you back?");
+  // const notify = () => toast.info("Are you back?");
 
   return (
     <div className={s.userwrap}>

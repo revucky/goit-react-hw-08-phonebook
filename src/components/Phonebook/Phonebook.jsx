@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import ContactForm from "../ContactForm/ContactForm";
 import { useSelector, useDispatch } from "react-redux";
-// import contactsAction from "../../redux/contacts";
+
 import * as contactsOperations from "../../redux/contacts/contactsOperation";
 import Filter from "../Fliter/Filter";
 import ContactList from "./ContactList";
@@ -24,7 +24,7 @@ const Phonebook = () => {
   const { t } = useTranslation();
   const contacts = useSelector((state) => state.contacts.data.items);
   const filter = useSelector((state) => state.contacts.filter);
-  const token = useSelector((state) => state.auth.token);
+
   // const loading = useSelector((state) => state.contacts.data.loading);
   // const error = useSelector((state) => state.contacts.data.error);
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Phonebook = () => {
   //   storage.save(STORAGE_KEY, contacts);
   // }, [contacts]);
   useEffect(() => {
-    token && dispatch(getContact());
+    dispatch(getContact());
   }, [dispatch]);
   // додавання
   // const handleCreate = (newContact) => {

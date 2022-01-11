@@ -9,7 +9,6 @@ const initialState = {
     items: [],
     loading: false,
     error: null,
-    token: null,
   },
   filter: "",
 };
@@ -33,7 +32,6 @@ const contactsSlice = createSlice({
       .addCase(getContact.pending, (state) => {
         state.data.loading = true;
         state.data.error = null;
-        state.data.token = null;
       })
       .addCase(getContact.fulfilled, (state, { payload }) => {
         state.data.loading = false;
@@ -64,9 +62,7 @@ const contactsSlice = createSlice({
       })
       .addCase(deleteContacts.fulfilled, (state, { payload }) => {
         state.data.loading = false;
-        const inx = state.data.items.findIndex(
-          (cont) => cont.id === payload.id
-        );
+        const inx = state.data.items.findIndex((cont) => cont.id === payload);
         state.data.items.splice(inx, 1);
       })
       .addCase(deleteContacts.rejected, (state, { payload }) => {

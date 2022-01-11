@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import authOperations from "../../redux/auth/AuthOperations";
-import { Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 // import Fingerprint from "@mui/icons-material/Fingerprint";
 import { useTranslation } from "react-i18next";
 import s from "../pages.module.css";
@@ -12,12 +12,21 @@ export default function RegisterView() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const error = useSelector((state) => state.auth.error);
+
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (!error) return;
+    toast.error(error);
+  }, [error]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authOperations.register({ name, email, password }));
-    toast.success(`Registration is success, ${name}`);
+    dispatch(authOperations.register({ name, email, password })).then(() =>
+      toast.success(`Registration is success, ${name}`)
+    );
+    // toast.success(`Registration is success, ${name}`);
     // setName("");
     // setPassword("");
     // setEmail("");
@@ -61,9 +70,7 @@ export default function RegisterView() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        {/* <IconButton type="submit" aria-label="fingerprint" color="success">
-          <Fingerprint />
-        </IconButton> */}
+
         <Button
           color="success"
           variant="contained"

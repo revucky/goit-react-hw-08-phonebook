@@ -11,9 +11,9 @@ const ContactList = ({ lists, onClick }) => {
   return (
     <div>
       <ul className="list">
-        {lists.map(({ name, phone, id }) => (
+        {lists.map(({ name, number, id }) => (
           <li className="list-item" key={id}>
-            <GrUserManager className="icon" /> {name}: {phone}
+            <GrUserManager className="icon" /> {name}: {number}
             <button
               className="btn btn-list"
               type="button"
