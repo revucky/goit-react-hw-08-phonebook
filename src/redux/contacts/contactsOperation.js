@@ -4,18 +4,24 @@ import * as api from "../../services/api";
 const ENDPOINT = "contacts";
 
 const getContact = createAsyncThunk("contacts/getContactStatus", async () => {
-  const res = await api.getData(ENDPOINT);
-  return res;
+  const { data } = await api.getData(ENDPOINT);
+  return data;
 });
 
 const createContacts = createAsyncThunk(
   "contacts/createContactsStatus",
-  (newContact) => api.addItem(ENDPOINT, newContact)
+  async (newContact) => {
+    const { data } = await api.addItem(ENDPOINT, newContact);
+    return data;
+  }
 );
 
 const deleteContacts = createAsyncThunk(
   "contacts/ddeleteContactsStatus",
-  (id) => api.deleteItem(ENDPOINT, id)
+  async (id) => {
+    const { data } = await api.deleteItem(ENDPOINT, id);
+    return data;
+  }
 );
 
 export { getContact, createContacts, deleteContacts };

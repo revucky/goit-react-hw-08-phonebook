@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import authOperations from "../../redux/auth/AuthOperations";
+import { Button, IconButton } from "@mui/material";
+// import Fingerprint from "@mui/icons-material/Fingerprint";
 import { useTranslation } from "react-i18next";
 import s from "../pages.module.css";
 import { toast } from "react-toastify";
@@ -59,9 +61,19 @@ export default function RegisterView() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className={s.btn} type="submit" disabled={isBtnDisabled}>
+        {/* <IconButton type="submit" aria-label="fingerprint" color="success">
+          <Fingerprint />
+        </IconButton> */}
+        <Button
+          color="success"
+          variant="contained"
+          type="submit"
+          disabled={isBtnDisabled}
+        >
+          {/* <button type="submit" disabled={isBtnDisabled}> */}
           {t("pages.reg.btn")}
-        </button>
+          {/* </button> */}
+        </Button>
       </form>
     </div>
   );
