@@ -37,13 +37,6 @@ const App = () => {
   }
   return (
     <>
-      <header className="header">
-        <Suspense fallback={<p>...</p>}>
-          <LangSwitcher />
-        </Suspense>
-        <Navigation />
-        {isLoggedIn ? <UserMenu /> : <AuthNav />}
-      </header>
       <Suspense
         fallback={
           <Loader
@@ -55,6 +48,23 @@ const App = () => {
           />
         }
       >
+        <header className="header">
+          {/* <LangSwitcher /> */}
+          {/* </Suspense> */}
+          <Navigation />
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </header>
+        {/* <Suspense
+        fallback={
+          <Loader
+            type="Bars"
+            color="#00BFFF"
+            height={80}
+            width={80}
+            timeout={3000}
+          />
+        }
+      > */}
         <Switch>
           <PublicRoute exact path="/">
             <HomeView />
