@@ -10,7 +10,7 @@ const lang = {
 
 const LangSwitcher = (props) => {
   const { i18n } = useTranslation();
-  console.log(i18n.resolvedLanguage);
+  // console.log(i18n.resolvedLanguage);
   return (
     <div className={s.switcher}>
       {Object.keys(lang).map((lng) => (

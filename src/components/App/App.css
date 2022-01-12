@@ -21,6 +21,7 @@
   height: 70px;
   display: flex;
   /* flex-direction: column; */
+  position: relative;
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
@@ -31,16 +32,32 @@
   padding: 20px;
   background-color: #fff;
   transition: all 200ms;
-  margin-top: 10%;
-  width: 495px;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* padding-top: 10%; */
+  /* width: 300px; */
+  /* margin-left: auto;
+  margin-right: auto; */
 }
+@media screen and (min-width: 480px) {
+  .paper {
+    width: 495px;
+  }
+}
+
 .wrap {
   display: grid;
-  width: 380px;
+  width: 180px;
   grid-template-columns: repeat(2, 1fr);
 }
+@media screen and (min-width: 480px) {
+  .wrap {
+    width: 380px;
+  }
+}
+
 .App-link {
   color: #61dafb;
 }

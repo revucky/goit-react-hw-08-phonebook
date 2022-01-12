@@ -1,0 +1,11 @@
+.lightTheme {
+  color: #282c34;
+  background-color: silver;
+  height: 100vh;
+}
+
+.darkTheme {
+  color: white;
+  background-color: black;
+  height: 100vh;
+}

@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   font-family: Ubuntu;
+  margin-top: 0px;
+  padding-top: 21px;
 }
 .forma {
   margin-top: 10px;
@@ -29,6 +31,11 @@
   padding-left: 8px;
   margin-bottom: 15px;
 }
+/* @media screen and (min-width: 480px) {
+    .input {
+    width: 250px;
+    height: 25px;
+  } */
 .btn {
   background: #f57b0b;
   border-radius: 6px;
