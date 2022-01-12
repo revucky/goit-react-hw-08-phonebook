@@ -16,7 +16,8 @@ const ContactForm = ({ allContacts, onSubmit }) => {
   //сабміт форми
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isDuplicate = (allContacts) => allContacts.name === name;
+    const isDuplicate = (allContacts) =>
+      allContacts.name || allContacts.number === name || number;
     allContacts.some(isDuplicate)
       ? toast.error(`${name}, вже у твоєму списку контакті!`)
       : dispatch(createContacts({ name, number, id: nanoid(3) }));

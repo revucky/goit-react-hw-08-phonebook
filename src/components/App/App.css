@@ -36,6 +36,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+.wrap {
+  display: grid;
+  width: 380px;
+  grid-template-columns: repeat(2, 1fr);
+}
 .App-link {
   color: #61dafb;
 }

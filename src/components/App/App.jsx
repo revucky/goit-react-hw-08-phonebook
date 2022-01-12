@@ -1,18 +1,15 @@
 import { useEffect, lazy, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Switch } from "react-router-dom";
-// import Phonebook from "../Phonebook/Phonebook";
+
 import Navigation from "../header/Navigation";
 import AuthNav from "../header/AuthNav";
 import UserMenu from "../header/UserMenu";
-// import HomeView from "../../pages/HomeView/HomeView";
-// import RegisterView from "../../pages/RegisterView/RegisterView";
-// import LoginView from "../../pages/LoginView/LoginView";
+import Spinner from "react-bootstrap/Spinner";
 import authSelectors from "../../redux/auth/AuthSelectors";
 import PrivatRoute from "../header/PrivatRoute";
 import PublicRoute from "../header/PublicRoute";
 import authOperations from "../../redux/auth/AuthOperations";
-
 import Loader from "react-loader-spinner";
 import LangSwitcher from "../LangSwitcher/LangSwitcher.js";
 import "./App.css";
@@ -36,35 +33,29 @@ const App = () => {
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   if (loadingUser) {
-    return (
-      <Loader
-        type="Bars"
-        color="#00BFFF"
-        height={80}
-        width={80}
-        timeout={3000}
-      />
-    );
+    return <Spinner animation="grow" />;
   }
   return (
     <>
       <header className="header">
-        <LangSwitcher />
+        <Suspense fallback={<p>...</p>}>
+          <LangSwitcher />
+        </Suspense>
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
-      <Switch>
-        <Suspense
-          fallback={
-            <Loader
-              type="Bars"
-              color="#00BFFF"
-              height={80}
-              width={80}
-              timeout={3000}
-            />
-          }
-        >
+      <Suspense
+        fallback={
+          <Loader
+            type="Bars"
+            color="#00BFFF"
+            height={80}
+            width={80}
+            timeout={3000}
+          />
+        }
+      >
+        <Switch>
           <PublicRoute exact path="/">
             <HomeView />
           </PublicRoute>
@@ -77,8 +68,8 @@ const App = () => {
           <PrivatRoute path="/contacts">
             <Phonebook />
           </PrivatRoute>
-        </Suspense>
-      </Switch>
+        </Switch>
+      </Suspense>
       <ToastContainer position="top-right" autoClose={2000} closeOnClick />
     </>
   );
