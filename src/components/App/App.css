@@ -34,7 +34,7 @@
   background-color: #fff;
   transition: all 200ms;
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* padding-top: 10%; */
@@ -52,7 +52,7 @@
 
 @media screen and (min-width: 480px) {
   .paper {
-    top: 20%;
+    top: 35%;
     width: 495px;
   }
   .wrap {

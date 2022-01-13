@@ -1,11 +1,10 @@
 .title {
   display: inline-block;
   color: white;
-  /* margin-right: 20px; */
-  margin-right: 10px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  margin-right: 5px;
 }
 .title:hover {
   transition: all 0.3s cubic-bezier(0, 0, 1, 1);
@@ -15,6 +14,7 @@
 .activeLink {
   composes: title;
   color: pink;
+  margin-right: 10px;
 }
 .nav {
   display: flex;
@@ -54,6 +54,7 @@
 @media screen and (min-width: 480px) {
   .title {
     font-size: 18px;
+    margin-right: 10px;
   }
   .titleuser {
     margin-right: 10px;

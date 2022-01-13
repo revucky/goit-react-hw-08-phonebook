@@ -60,7 +60,13 @@ const App = () => {
         >
           <ThemeChange.Provider value={{ theme, toggleTheme }}>
             <header className="header">
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginRight: 10,
+                }}
+              >
                 <LangSwitcher />
                 <ThemeSwitcher />
                 <Navigation />
