@@ -22,6 +22,7 @@
   display: flex;
   /* flex-direction: column; */
   position: relative;
+  margin-bottom: 10px;
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
@@ -41,21 +42,20 @@
   /* margin-left: auto;
   margin-right: auto; */
 }
+
+.wrap {
+  display: grid;
+  width: 380px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media screen and (min-width: 480px) {
   .paper {
     width: 495px;
   }
-}
-
-.wrap {
-  display: grid;
-  width: 180px;
-  grid-template-columns: repeat(2, 1fr);
-}
-@media screen and (min-width: 480px) {
-  .wrap {
+  /* .wrap {
     width: 380px;
-  }
+  } */
 }
 
 .App-link {

@@ -17,6 +17,7 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AppBar from "../AppBar/AppBar";
+import s from "../AppBar/App.module.css";
 
 // const HomeView = lazy(() => import("../../pages/HomeView/HomeView"));
 // const RegisterView = lazy(() =>
@@ -27,7 +28,6 @@ import AppBar from "../AppBar/AppBar";
 
 const App = () => {
   const dispatch = useDispatch();
-  // const { theme } = useContext(ThemeChange);
   const [theme, setTheme] = useState(themes.light);
   const loadingUser = useSelector((state) => state.auth.loadingUser);
 
@@ -46,28 +46,28 @@ const App = () => {
 
   return (
     <>
-      <Suspense
-        fallback={
-          <Loader
-            type="Bars"
-            color="#00BFFF"
-            height={80}
-            width={80}
-            timeout={3000}
-          />
-        }
-      >
-        <ThemeChange.Provider value={{ theme, toggleTheme }}>
-          <header className="header">
-            <LangSwitcher />
-            <ThemeSwitcher />
-
-            <Navigation />
-            {isLoggedIn ? <UserMenu /> : <AuthNav />}
-          </header>
-          <AppBar />
-        </ThemeChange.Provider>
-        {/* <Switch>
+      <div className={theme === themes.light ? s.lightTheme : s.darkTheme}>
+        <Suspense
+          fallback={
+            <Loader
+              type="Bars"
+              color="#00BFFF"
+              height={80}
+              width={80}
+              timeout={3000}
+            />
+          }
+        >
+          <ThemeChange.Provider value={{ theme, toggleTheme }}>
+            <header className="header">
+              <LangSwitcher />
+              <ThemeSwitcher />
+              <Navigation />
+              {isLoggedIn ? <UserMenu /> : <AuthNav />}
+            </header>
+            <AppBar />
+          </ThemeChange.Provider>
+          {/* <Switch>
           <PublicRoute exact path="/">
             <HomeView />
           </PublicRoute>
@@ -81,8 +81,9 @@ const App = () => {
             <Phonebook />
           </PrivatRoute>
         </Switch> */}
-      </Suspense>
-      <ToastContainer position="top-right" autoClose={2000} closeOnClick />
+        </Suspense>
+        <ToastContainer position="top-right" autoClose={2000} closeOnClick />
+      </div>
     </>
   );
 };

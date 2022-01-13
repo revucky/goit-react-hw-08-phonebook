@@ -56,6 +56,7 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const response = await axios.get("/users/current");
+      console.log(response.data);
       return response.data;
     } catch (errror) {
       token.unset();
