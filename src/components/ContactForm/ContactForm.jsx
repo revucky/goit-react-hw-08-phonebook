@@ -47,10 +47,10 @@ const ContactForm = ({ allContacts, onSubmit }) => {
           value={name}
           placeholder={t("contactForm.placeholder")}
           onChange={(e) => setName(e.target.value)}
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[A-Za-zА-Яа-яґҐЁёІіЇїЄє'’ʼ\s-\D [^0-9]]*)*$"
           title=" Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan "
           required
-        />{" "}
+        />
       </div>
       <br />
       <div className="wrap">

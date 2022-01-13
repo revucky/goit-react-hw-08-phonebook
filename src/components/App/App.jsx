@@ -60,9 +60,11 @@ const App = () => {
         >
           <ThemeChange.Provider value={{ theme, toggleTheme }}>
             <header className="header">
-              <LangSwitcher />
-              <ThemeSwitcher />
-              <Navigation />
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <LangSwitcher />
+                <ThemeSwitcher />
+                <Navigation />
+              </div>
               {isLoggedIn ? <UserMenu /> : <AuthNav />}
             </header>
             <AppBar />
