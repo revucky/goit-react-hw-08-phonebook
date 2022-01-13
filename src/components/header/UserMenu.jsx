@@ -16,7 +16,7 @@ const UserMenu = () => {
 
   return (
     <div className={s.userwrap}>
-      <img src={avatar} width="30" alt="avatar" />
+      <img className={s.avatar} src={avatar} width="30" alt="avatar" />
       <span className={s.titleuser}>
         {t("header.usermenu.welcome")}, {name}
       </span>

@@ -4,38 +4,52 @@
   font-family: Ubuntu;
   margin-top: 0px;
   padding-top: 21px;
+  font-size: 20px;
 }
+
 .forma {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .label {
   font-family: Ubuntu;
-  width: 150px;
+  width: 62px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
+
   line-height: 21px;
   letter-spacing: -0.03em;
 }
+
 .input {
   border: 1.17246px solid #c8c8c8;
   box-sizing: border-box;
   border-radius: 5px;
   margin-left: 15px;
   margin-right: 15px;
-  width: 250px;
+  width: 220px;
   height: 25px;
   padding-left: 8px;
   margin-bottom: 15px;
 }
-/* @media screen and (min-width: 480px) {
-    .input {
+@media screen and (min-width: 480px) {
+  .forma {
+    align-items: center;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .label {
+    width: 150px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  .input {
     width: 250px;
-    height: 25px;
-  } */
+  }
+}
 .btn {
   background: #f57b0b;
   border-radius: 6px;

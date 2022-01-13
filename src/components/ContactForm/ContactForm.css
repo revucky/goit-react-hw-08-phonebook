@@ -7,16 +7,28 @@
 }
 .wrap {
   display: grid;
-  width: 380px;
+  width: 360px;
   grid-template-columns: repeat(2, 1fr);
 }
+
 .label {
   font-family: Ubuntu;
-  width: 150px;
+  width: 115px;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
+
   line-height: 21px;
   letter-spacing: -0.03em;
+}
+@media screen and (min-width: 480px) {
+  .wrap {
+    width: 380px;
+  }
+  .label {
+    width: 150px;
+    font-size: 18px;
+  }
 }
 .input {
   border: 1.17246px solid #c8c8c8;

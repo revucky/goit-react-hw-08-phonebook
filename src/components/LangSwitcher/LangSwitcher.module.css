@@ -2,11 +2,15 @@
   display: flex;
 }
 .btn {
-  margin-right: 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   /* border-radius: 50%; */
+}
+@media screen and (min-width: 480px) {
+  .switch {
+    margin-right: 10px;
+  }
 }
 .active {
   composes: btn;

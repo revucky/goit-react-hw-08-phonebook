@@ -34,28 +34,30 @@
   background-color: #fff;
   transition: all 200ms;
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* padding-top: 10%; */
-  /* width: 300px; */
+  width: 300px;
   /* margin-left: auto;
   margin-right: auto; */
 }
 
 .wrap {
   display: grid;
-  width: 380px;
+  width: 180px;
+  margin-left: 10px;
   grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (min-width: 480px) {
   .paper {
+    top: 20%;
     width: 495px;
   }
-  /* .wrap {
+  .wrap {
     width: 380px;
-  } */
+  }
 }
 
 .App-link {

@@ -4,7 +4,7 @@
   /* margin-right: 20px; */
   margin-right: 10px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
 }
 .title:hover {
@@ -26,18 +26,17 @@
 .titleuser {
   display: inline-block;
   color: white;
-  /* margin-right: 20px; */
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 18px;
+  font-size: 10px;
   font-weight: 500;
+  width: 57px;
+  text-decoration: none;
 }
 .userBtn {
   cursor: pointer;
   background: #f57b0b;
   border-radius: 6px;
   border: none;
-  width: 60px;
+  width: 43px;
   height: 30px;
   color: #fff;
   box-shadow: 0 0 15px 7px rgba(34, 60, 80, 0.2);
@@ -47,4 +46,29 @@
   transition: box-shadow 0.5s, transform 0.5s;
   transform: scale(1.2);
   color: pink;
+}
+.avatar {
+  display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .title {
+    font-size: 18px;
+  }
+  .titleuser {
+    margin-right: 10px;
+    font-size: 17px;
+    width: 180px;
+  }
+  .userBtn {
+    width: 60px;
+    height: 30px;
+  }
+  .wrap {
+    width: 380px;
+  }
+  .avatar {
+    display: unset;
+    margin-right: 10px;
+  }
 }

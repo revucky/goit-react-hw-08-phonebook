@@ -5,14 +5,19 @@
 .switch {
   position: relative;
   display: inline-block;
-  margin-right: 40px;
+  margin-right: 4px;
   height: 34px;
+}
+@media screen and (min-width: 480px) {
+  .switch {
+    margin-right: 40px;
+  }
 }
 
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
-  width: 0;
+  width: 30px;
   height: 0;
 }
 
@@ -24,7 +29,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: transparent;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -43,13 +48,14 @@
   transition: 0.4s;
   box-shadow: 0 0px 15px #2020203d;
   background:  /* url("https://i.ibb.co/FxzBYR9/night.png"); */
-    url("https://i.ibb.co/rHgbX8X/moon.png");
+    url("https://i.ibb.co/4KGb0jZ/1821-night-sky-moon-stars-outline.gif");
+  /* url("https://i.ibb.co/rHgbX8X/moon.png"); */
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .switch input:checked + .slider {
-  background-color: #444;
+  background-color: transparent;
 }
 
 .switch input:focus + .slider {
@@ -57,9 +63,9 @@
 }
 
 .switch input:checked + .slider:before {
-  /* -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px); */
+  -webkit-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  transform: translateY(-20px);
   background:  /* url("https://i.ibb.co/7JfqXxB/sunny.png"); */
     url("https://i.ibb.co/F5mNfTj/idea.png");
   background-repeat: no-repeat;
