@@ -28,11 +28,11 @@
     "reg": {
       "title": "Сторінка реєстрації",
       "labelNam": "Імʼя користувача",
-      "placeholderNam": "Напишіть ваше імʼя користувача",
+      "placeholderNam": "Приклад: 'Gabriel'",
       "label": "Електронна адреса",
-      "placeholder": "Напишіть вашу електронну адресу",
+      "placeholder": "Приклад: 'posta@ua.ua'",
       "labelPas": "Пароль",
-      "placeholderPas": "Напишіть ваш унікальний пароль",
+      "placeholderPas": "Приклад: 'par@ol'",
       "btn": "Зареєструватися"
     }
   },

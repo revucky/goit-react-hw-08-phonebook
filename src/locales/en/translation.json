@@ -28,11 +28,11 @@
     "reg": {
       "title": "Sign up page",
       "labelNam": "User Name",
-      "placeholderNam": "Type here your user name",
+      "placeholderNam": "Example: 'Gabriel'",
       "label": "Email",
-      "placeholder": "Type here your email",
+      "placeholder": "Example: 'mail@ua.ua'",
       "labelPas": "Password",
-      "placeholderPas": "Type here your unique password",
+      "placeholderPas": "Example: 'pas@word'",
       "btn": "Registration"
     }
   },

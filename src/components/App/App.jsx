@@ -8,8 +8,7 @@ import AuthNav from "../header/AuthNav";
 import UserMenu from "../header/UserMenu";
 import Spinner from "react-bootstrap/Spinner";
 import authSelectors from "../../redux/auth/AuthSelectors";
-// import PrivatRoute from "../header/PrivatRoute";
-// import PublicRoute from "../header/PublicRoute";
+import { useLocalStorage } from "react-use";
 import authOperations from "../../redux/auth/AuthOperations";
 import Loader from "react-loader-spinner";
 import LangSwitcher from "../LangSwitcher/LangSwitcher.js";
@@ -26,9 +25,11 @@ import s from "../AppBar/App.module.css";
 // const LoginView = lazy(() => import("../../pages/LoginView/LoginView"));
 // const Phonebook = lazy(() => import("../Phonebook/Phonebook"));
 
+const STORAGE = "theme";
+
 const App = () => {
   const dispatch = useDispatch();
-  const [theme, setTheme] = useState(themes.light);
+  const [theme, setTheme] = useLocalStorage(STORAGE, themes.light);
   const loadingUser = useSelector((state) => state.auth.loadingUser);
 
   const toggleTheme = () =>
