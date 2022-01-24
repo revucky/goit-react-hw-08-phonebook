@@ -50,8 +50,8 @@ export default function LoginView() {
               placeholder={t("pages.log.placeholder")}
               name="email"
               value={email}
-              pattern="[A-Za-z0-9]{4,}"
-              title="Логін не может бути меншим за 4 латинських символів."
+              // pattern="[A-Za-z0-9]{4,}"
+              // title="Логін не может бути меншим за 4 латинських символів."
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -62,8 +62,8 @@ export default function LoginView() {
               type="password"
               name="password"
               value={password}
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
-              title="Пароль не може бути меншим за вісім символів і має містити хоча б одну цифру, одну маленьку та одну велику латинську літеру."
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+              // title="Пароль не може бути меншим за вісім символів і має містити хоча б одну цифру, одну маленьку та одну велику латинську літеру."
               placeholder={t("pages.log.placeholderPas")}
               onChange={(e) => setPassword(e.target.value)}
             />

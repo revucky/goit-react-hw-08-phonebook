@@ -12,10 +12,14 @@
   text-decoration: none;
   list-style: none;
 }
+
+html,
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   /* -webkit-font-feature-settings: anti; */
   color: var(--text-color);
   background-color: var(--silver-color);
+  scrollbar-color: tomato #f0ac7b3b; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin; /* толщина */
 }

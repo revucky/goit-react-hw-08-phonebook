@@ -23,9 +23,9 @@ export default function RegisterView() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authOperations.register({ name, email, password })).then(() =>
-      toast.success(`Registration is success, ${name}`)
-    );
+    dispatch(authOperations.register({ name, email, password })).then(() => {
+      // toast.success(`Registration is success, ${name}`)
+    });
     // toast.success(`Registration is success, ${name}`);
     // setName("");
     // setPassword("");
@@ -44,7 +44,7 @@ export default function RegisterView() {
             type="text"
             name="name"
             placeholder={t("pages.reg.placeholderNam")}
-            pattern="[A-Za-z]"
+            // pattern="[A-Za-z]"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -56,8 +56,8 @@ export default function RegisterView() {
             type="email"
             placeholder={t("pages.reg.placeholder")}
             name="email"
-            pattern="[A-Za-z0-9]{4,}"
-            title="Логін не может бути меншим за 4 латинських символів."
+            // pattern="[A-Za-z0-9]{4,}"
+            // title="Логін не может бути меншим за 4 латинських символів."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -69,8 +69,8 @@ export default function RegisterView() {
             type="password"
             name="password"
             value={password}
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
-            title="Пароль не може бути меншим за вісім символів і має містити хоча б одну цифру, одну маленьку та одну велику латинську літеру."
+            // pattern="(?=.*[A-Za-z])(?=^.{4,}$)"
+            // title="Пароль не може бути не меншим за чотири символи і має містити одну маленьку або одну велику латинську літеру."
             placeholder={t("pages.reg.placeholderPas")}
             onChange={(e) => setPassword(e.target.value)}
           />

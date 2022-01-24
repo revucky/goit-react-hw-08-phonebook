@@ -3,11 +3,8 @@
   flex-direction: column;
   align-items: center;
   width: 407px;
+  height: 600px;
   margin: 0 auto;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
   /* background-color: rgb(248, 244, 244); */
   border: 1px solid coral;
@@ -44,7 +41,19 @@
 .list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  height: 266px;
+  overflow-y: auto;
 }
+.list::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+  background-color: #f5f6fb;
+}
+.list::-webkit-scrollbar-thumb {
+  background-color: #ff751d;
+  border-radius: 50px;
+}
+
 .list-item {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

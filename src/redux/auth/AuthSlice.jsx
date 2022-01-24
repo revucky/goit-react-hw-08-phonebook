@@ -70,6 +70,7 @@ const authSlice = createSlice({
         authOperations.fetchCurrentUser.fulfilled,
         (state, { payload }) => {
           state.user = payload;
+          // state.user = payload ?? { name: null, email: null };
           state.isLoggedIn = true;
           state.loadingUser = false;
         }
